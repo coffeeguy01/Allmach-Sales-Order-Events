@@ -182,7 +182,28 @@ define(['N/search', 'N/ui/dialog'],
                     currentRecord.setValue({fieldId: 'custbodyhold_pikcing_reason', value: ''})
                 }
 
+            } else if (scriptContext.fieldId == 'custbodyhold_pikcing_reason') {
+                var currentRecord = scriptContext.currentRecord;
+                var holdPickingReason = currentRecord.getValue({fieldId: 'custbodyhold_pikcing_reason'});
+                if (holdPickingReason) {
+                    var fldHoldPickingReason = currentRecord.getField({
+                        fieldId: 'custbodyhold_pikcing_reason'
+                    })
+                    log.debug('has value holdPickingReason'+holdPickingReason)
+                    //fldHoldPicking.isMandatory = true;
+                } else {
+                    var fldHoldPickingReason = currentRecord.getField({
+                        fieldId: 'custbodyhold_pikcing_reason'
+                    })
+                    log.debug('no value holdPickingReason'+holdPickingReason)
+                    //fldHoldPicking.isMandatory = false;
+                    //currentRecord.setValue({fieldId: 'custbodyhold_pikcing_reason', value: ''})
+                }
+
             }
+
+
+
         }
 
         /**
